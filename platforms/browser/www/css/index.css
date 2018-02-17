@@ -25,6 +25,10 @@
 html, body {
   height: 100%;
 }
+#progress, #progress2 {
+    text-color:"#7a1fb8";
+    background-image:"url(img/bck.jpeg)";
+}
 
 body {
   -webkit-touch-callout: none;
@@ -33,7 +37,7 @@ body {
   /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;
   /* prevent copy paste, to allow, change 'none' to 'text' */
-  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;;/*'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
   font-size: 16px;
   height: 100%;
   margin: 0px;
@@ -97,7 +101,9 @@ p {
   height: 60px;
   float: left;
 }
-
+.center{
+    text-align: center;
+}
 .monster-image {
   position: absolute;
   background-image: url("../img/monster.png");
@@ -124,7 +130,7 @@ p {
   flex-grow: 0;
 }
 
-#progress {
+#progress, #progress2 {
   margin: 20px;
   width: 100px;
   height: 100px;
@@ -227,7 +233,7 @@ p {
 .goal {
   border: 1px solid #27408b;
   background-color: rgba(245, 248, 255, 0.773);
-  height: 128px;
+  height: 186px;
   margin: 10px 10px;
   padding: 10px;
   line-height: 32px;

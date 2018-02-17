@@ -33,7 +33,7 @@ body {
   /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;
   /* prevent copy paste, to allow, change 'none' to 'text' */
-  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', sans-serif;;/*'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
   font-size: 16px;
   height: 100%;
   margin: 0px;
@@ -97,7 +97,9 @@ p {
   height: 60px;
   float: left;
 }
-
+.center{
+    text-align: center;
+}
 .monster-image {
   position: absolute;
   background-image: url("../img/monster.png");
@@ -124,7 +126,7 @@ p {
   flex-grow: 0;
 }
 
-#progress {
+#progress, #progress2 {
   margin: 20px;
   width: 100px;
   height: 100px;

@@ -64,6 +64,11 @@ p {
   line-height: 56px;
 }
 
+a, a:active, a:hover, a:visited {
+  color: #6C2EE8;
+  text-decoration: none;
+}
+
 .button {
   width: 160px;
   background-color: #27408b;
@@ -227,15 +232,15 @@ p {
 .goal {
   border: 1px solid #27408b;
   background-color: rgba(245, 248, 255, 0.773);
-  height: 128px;
+  height: 186px;
   margin: 10px 10px;
   padding: 10px;
   line-height: 32px;
   position: relative;
 }
 
-.action {
-  font-size: 28px;
+.view-details-icon {
+  font-size: 20px;
 }
 
 .close-button {

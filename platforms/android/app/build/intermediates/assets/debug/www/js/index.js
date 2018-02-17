@@ -32,6 +32,11 @@ var app = {
         });
         this.bar.animate(randomValue);  // Number from 0.0 to 1.0
 
+        function onDisconnect() {
+            $(".view").hide();
+            $("#selection-view").show();
+        }
+        
         $(".open-parent-view").click(function () {
             $(".view").hide();
             $("#loader-view").show();
@@ -41,6 +46,9 @@ var app = {
                 var randomValue = Math.random();
                 self.bar.setText((randomValue * 100).toFixed(0) + '%');
                 self.bar.animate(randomValue);
+            }).fail(function() {
+                alert("Can't connect to server!");
+                onDisconnect();
             });
         });
         $(".open-child-view").click(function () {
@@ -51,6 +59,10 @@ var app = {
             $("#parent-child-view").find(".child-name").text($(this).attr("value"));
             $(".view").hide();
             $("#parent-child-view").show();
+        });
+        $(".open-selection-view").click(function () {
+            $(".view").hide();
+            $("#selection-view").show();
         });
     },
 };

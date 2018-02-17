@@ -65,7 +65,7 @@ p {
 }
 
 .button {
-  width: 200px;
+  width: 160px;
   background-color: #27408b;
   border: none;
   color: #FFFFFF;
@@ -83,7 +83,7 @@ p {
   background-repeat: no-repeat;
   background-size: 102px 60px;
   background-position: center;
-  width: 120px;
+  width: 128px;
   height: 60px;
   float: left;
 }
@@ -93,7 +93,7 @@ p {
   background-repeat: no-repeat;
   background-size: 36px 60px;
   background-position: center;
-  width: 120px;
+  width: 128px;
   height: 60px;
   float: left;
 }
@@ -217,11 +217,29 @@ p {
 .kid {
   border: 1px solid #27408b;
   background-color: #f5f8ffc5;
-  height: 80px;
+  height: 128px;
   margin: 10px 10px;
   padding: 10px;
+  line-height: 32px;
+  position: relative;
 }
 
 .action {
   font-size: 28px;
+}
+
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+}
+
+.kid-name {
+  text-decoration: underline;
+}
+
+.add-kid-button {
+  width: 280px;
+  margin: 0px 10px;
 }

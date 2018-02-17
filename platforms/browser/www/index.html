@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
@@ -73,29 +55,69 @@
         <div class="flex-row row">
             <div class="credit-card-image flex-static-item"></div>
             <div>
-                <button class="button open-parent-account-view">YOUR ACCOUNT</button>
+                <button class="button open-parent-account-view">MY ACCOUNT</button>
             </div>
         </div>
-        <div class="subtitle">KIDS</div>
-        <div class="kid">
-            <div><b><span class="kid-name">ANNIE</span></b> HAS <b><span class="kid-balance">BALANCE</span></b></div>
+        <div class="subtitle">MY KIDS</div>
+        <div class="kid" value="ANNIE">
+            <div class="close-button">
+                <a href="#" class="close-kid" value="ANNIE">
+                    <i class="fa fa-close"></i>
+                </a>
+            </div>
             <div>
-                SELECT <a class="action action-account" value="ANNIE" href="#"><i class="	fa fa-cc-mastercard"></i></a> OR
-                <a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a>
+                <b>
+                    <span class="kid-name">ANNIE</span>
+                </b>
             </div>
-        </div>
-        <div class="flex-row row">
-            <div class="credit-card-image flex-static-item"></div>
             <div>
-                <button class="button open-parent-child-account" value="ANNIE">ANNIES ACCOUNT</button>
+                <span> HAVE</span>
+                <b>
+                    <span class="kid-balance">BALANCE</span>
+                </b> FOR TODAY
             </div>
-        </div>
-        <div class="flex-row row">
-            <div class="iphone-image flex-static-item"></div>
             <div>
-                <button class="button open-parent-child-account" value="Annie">ANNIES GOALS ACCOUNT</button>
+                AND SAVED
+                <b>
+                    <span class="kid-saved">BALANCE</span>
+                </b>
+            </div>
+            <div>
+                <span>
+                    <span>VIEW </span><a class="action action-account" value="ANNIE" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                </span>
             </div>
         </div>
+        <div class="kid" value="LIAM">
+            <div class="close-button">
+                <a href="#" class="close-kid" value="LIAM">
+                    <i class="fa fa-close"></i>
+                </a>
+            </div>
+            <div>
+                <b>
+                    <span class="kid-name">LIAM</span>
+                </b>
+            </div>
+            <div>
+                <span> HAVE</span>
+                <b>
+                    <span class="kid-balance">BALANCE</span>
+                </b> FOR TODAY
+            </div>
+            <div>
+                AND SAVED
+                <b>
+                    <span class="kid-saved">BALANCE</span>
+                </b>
+            </div>
+            <div>
+                <span>
+                        <span>VIEW </span><a class="action action-account" value="LIAM" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="LIAM" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                </span>
+            </div>
+        </div>
+        <button class="button add-kid-button" style="width: 280px;">ADD</button>
     </section>
     <section id="parent-account-view" class="view" style="display: none;">
         <h1>MY ACCOUNT</h1>
@@ -109,30 +131,17 @@
                 <i class="fa fa-power-off"></i>
             </a>
         </div>
-        <div class="line">YOUR ACCOUNT NUMBER IS
+        <div class="line">MY ACCOUNT NUMBER IS
             <b>
                 <span class="iban"></span>
             </b>
         </div>
-        <div class="line">YOUR ACCOUNT BALANCE IS
+        <div class="line">MY ACCOUNT BALANCE IS
             <b>
                 <span class="account-balance">5</span>
                 <span class="currency"></span>
             </b>
         </div>
-    </section>
-    <section id="parent-child-view" class="view" style="display: none;">
-        <h1>Parent</h1>
-        <div class="power-off-button open-selection-view">
-            <a href="#">
-                <i class="fa fa-power-off"></i>
-            </a>
-        </div>
-        <div class="flex-row">
-            <div class="fox-image flex-static-item"></div>
-            <div class="child-name">Name</div>
-        </div>
-        <button class="button open-parent-view">Back</button>
     </section>
     <section id="loader-view" class="view" style="display: none">
         <div class="spinner">

@@ -45,11 +45,6 @@ var app = {
             $(".view").hide();
             $("#child-view").show();
         });
-        $(".open-parent-child-view").click(function () {
-            $("#parent-child-view").find(".child-name").text($(this).attr("value"));
-            $(".view").hide();
-            $("#parent-child-view").show();
-        });
         $(".open-selection-view").click(function () {
             $(".view").hide();
             $("#selection-view").show();
@@ -70,6 +65,9 @@ var app = {
                 alert("Can't connect to server!");
                 onDisconnect();
             });
+        });
+        $(".close-kid").click(function () {
+            $('.kid[value="' + $(this).attr("value") + '"]').hide();
         });
     },
 };

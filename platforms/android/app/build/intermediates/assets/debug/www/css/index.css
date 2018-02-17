@@ -22,6 +22,10 @@
   /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   -webkit-touch-callout: none;
   /* prevent callout to copy image, etc when tap to hold */
@@ -29,32 +33,42 @@ body {
   /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;
   /* prevent copy paste, to allow, change 'none' to 'text' */
-  background-color: #aac8d7;
   font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   height: 100%;
   margin: 0px;
   padding: 0px;
   width: 100%;
-  color: #333333;
+  color: #27408b;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-image: url(../img/background.jpg);
+  background-color: #aac8d7;
+}
+
+section {
+  margin: auto;
+  width: 300px;
+  position: relative;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 72px;
+  font-weight: normal;
 }
 
 p {
   line-height: 56px;
 }
 
-.app {
-  padding: 10px;
-}
-
 .button {
-  background-color: #ebebeb;
+  width: 200px;
+  background-color: #27408b;
   border: none;
-  color: #000000;
+  color: #FFFFFF;
   padding: 12px 16px;
   text-align: center;
   text-decoration: none;
@@ -64,30 +78,40 @@ p {
   cursor: pointer;
 }
 
+.credit-card-image {
+  background-image: url("../img/credit-card.png");
+  background-repeat: no-repeat;
+  background-size: 102px 60px;
+  background-position: center;
+  width: 120px;
+  height: 60px;
+  float: left;
+}
+
+.iphone-image {
+  background-image: url("../img/iphone.png");
+  background-repeat: no-repeat;
+  background-size: 36px 60px;
+  background-position: center;
+  width: 120px;
+  height: 60px;
+  float: left;
+}
+
 .monster-image {
-  background-image: url(../img/monster.png);
+  position: absolute;
+  background-image: url("../img/monster.png");
   background-repeat: no-repeat;
-  width: 92px;
-  height: 48px;
-  float: left;
-  margin-left: 20px;
+  background-size: 58px 50px;
+  background-position: center;
+  width: 58px;
+  height: 50px;
+  left: 30px;
+  top: -12px;
 }
 
-.sun-image {
-  background-image: url("../img/sun.png");
-  background-repeat: no-repeat;
-  width: 59px;
-  height: 57px;
-  float: left;
-}
-
-.fox-image {
-  background-image: url("../img/fox.png");
-  background-repeat: no-repeat;
-  background-size: 60px 52px;
-  width: 60px;
-  height: 52px;
-  float: left;
+.row {
+  margin-bottom: 52px;
 }
 
 .flex-row {
@@ -114,12 +138,11 @@ p {
   font-size: 10px;
 }
 
-.spinner > div {
+.spinner>div {
   background-color: #333;
   height: 100%;
   width: 6px;
   display: inline-block;
-  
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
@@ -145,15 +168,20 @@ p {
 }
 
 @-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-  20% { -webkit-transform: scaleY(1.0) }
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4)
+  }
+  20% {
+    -webkit-transform: scaleY(1.0)
+  }
 }
 
 @keyframes sk-stretchdelay {
-  0%, 40%, 100% { 
+  0%, 40%, 100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
-  }  20% { 
+  }
+  20% {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
@@ -164,15 +192,28 @@ p {
 }
 
 .power-off-button {
-  position: fixed;
+  position: absolute;
   right: 15px;
   top: 15px;
   font-size: 24px;
 }
 
-.background {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background-image:url(../img/background.jpg);
+.back-button {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.line {
+  margin-top: 22px;
+}
+
+.kid {
+  background-color: rgba(255, 255, 255, 0.5);
 }

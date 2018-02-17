@@ -41,29 +41,27 @@
         </p>
     </section>
     <section id="child-view" class="view" style="display: none;">
-        <h1>Child</h1>
+        <h1>HI, ANNIE!</h1>
         <div class="power-off-button open-selection-view">
             <a href="#">
                 <i class="fa fa-power-off"></i>
             </a>
         </div>
-        <div class="app">
-            <div class="flex-row">
-                <div class="fox-image flex-static-item"></div>
-                <div class="welcome-text">Hello, kid! :)</div>
-            </div>
-            <div>Hei, your budget for today -
-                <b>5</b> Euro</div>
-            <div class="flex-row">
-                <div class="sun-image flex-static-item"></div>
-                <div>
-                    You have saved
-                    <b>2</b>
-                    Euro from yesterday! Congrats!
-                </div>
-            </div>
-            <button class="button open-parent-view">Parent</button>
+        <div class="monster-image open-selection-view">
         </div>
+        <div>Hei, your budget for today -
+            <b>5</b> Euro</div>
+        <div class="flex-row">
+            <div class="sun-image flex-static-item"></div>
+            <div>
+                You have saved
+                <b>2</b>
+                Euro from yesterday! Congrats!
+            </div>
+        </div>
+        <div id="progress"></div>
+        <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
+        <button class="button open-child-view">Child interface</button>
     </section>
     <section id="parent-view" class="view" style="display: none;">
         <h1>HEI, MOM!</h1>
@@ -78,32 +76,50 @@
                 <button class="button open-parent-account-view">YOUR ACCOUNT</button>
             </div>
         </div>
-        <div class="subtitle">TRANSFER MONEY</div>
+        <div class="subtitle">KIDS</div>
+        <div class="kid">
+            <div><b><span class="kid-name">ANNIE</span></b> HAS <b><span class="kid-balance">BALANCE</span></b></div>
+            <div>
+                SELECT <a class="action action-account" value="ANNIE" href="#"><i class="	fa fa-cc-mastercard"></i></a> OR
+                <a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a>
+            </div>
+        </div>
         <div class="flex-row row">
             <div class="credit-card-image flex-static-item"></div>
             <div>
-                <button class="button open-child-view">KIDS ACCOUNT</button>
+                <button class="button open-parent-child-account" value="ANNIE">ANNIES ACCOUNT</button>
             </div>
         </div>
         <div class="flex-row row">
             <div class="iphone-image flex-static-item"></div>
             <div>
-                <button class="button open-child-view">KIDS GOALS</button>
+                <button class="button open-parent-child-account" value="Annie">ANNIES GOALS ACCOUNT</button>
             </div>
         </div>
     </section>
     <section id="parent-account-view" class="view" style="display: none;">
         <h1>MY ACCOUNT</h1>
+        <div class="back-button open-parent-view">
+            <a href="#">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+        </div>
         <div class="power-off-button open-selection-view">
             <a href="#">
                 <i class="fa fa-power-off"></i>
             </a>
         </div>
-        <div id="progress"></div>
-        <div>Hei, your budget for today -
-            <b>5</b> Euro</div>
-        <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
-        <button class="button open-child-view">Child interface</button>
+        <div class="line">YOUR ACCOUNT NUMBER IS
+            <b>
+                <span class="iban"></span>
+            </b>
+        </div>
+        <div class="line">YOUR ACCOUNT BALANCE IS
+            <b>
+                <span class="account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
     </section>
     <section id="parent-child-view" class="view" style="display: none;">
         <h1>Parent</h1>
@@ -112,7 +128,6 @@
                 <i class="fa fa-power-off"></i>
             </a>
         </div>
-        <div id="progress"></div>
         <div class="flex-row">
             <div class="fox-image flex-static-item"></div>
             <div class="child-name">Name</div>

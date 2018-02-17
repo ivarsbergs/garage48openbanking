@@ -23,15 +23,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    
+
     <title>Kids Bank</title>
 </head>
 
 <body>
-    <div class="background"></div>
     <section id="selection-view" class="view">
         <h1>User selection</h1>
         <p style="text-align: center;">
@@ -42,52 +41,94 @@
         </p>
     </section>
     <section id="child-view" class="view" style="display: none;">
-        <h1>Child</h1>
-        <div class="power-off-button open-selection-view"><a href="#"><i class="fa fa-power-off"></a></i></div>
-        <div class="app">
-            <div class="flex-row">
-                <div class="fox-image flex-static-item"></div>
-                <div class="welcome-text">Hello, kid! :)</div>
-            </div>
-            <div>Hei, your budget for today -
-                <b>5</b> Euro</div>
-            <div class="flex-row">
-                <div class="sun-image flex-static-item"></div>
-                <div>
-                    You have saved
-                    <b>2</b>
-                    Euro from yesterday! Congrats!
-                </div>
-            </div>
-            <button class="button open-parent-view">Parent</button>
+        <h1>HI, ANNIE!</h1>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
         </div>
+        <div class="monster-image open-selection-view">
+        </div>
+        <div>Hei, your budget for today -
+            <b>5</b> Euro</div>
+        <div class="flex-row">
+            <div class="sun-image flex-static-item"></div>
+            <div>
+                You have saved
+                <b>2</b>
+                Euro from yesterday! Congrats!
+            </div>
+        </div>
+        <div id="progress"></div>
+        <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
+        <button class="button open-child-view">Child interface</button>
     </section>
     <section id="parent-view" class="view" style="display: none;">
-        <h1>Parent</h1>
-        <div class="power-off-button open-selection-view"><a href="#"><i class="fa fa-power-off"></a></i></div>
-        <div class="app">
-            <div class="flex-row">
-                <div class="fox-image flex-static-item"></div>
-                <div class="welcome-text">Hello, parent! :)</div>
+        <h1>HEI, MOM!</h1>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+        <div class="flex-row row">
+            <div class="credit-card-image flex-static-item"></div>
+            <div>
+                <button class="button open-parent-account-view">YOUR ACCOUNT</button>
             </div>
-            <div id="progress"></div>
-            <div>Hei, your budget for today -
-                <b>5</b> Euro</div>
-            <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
-            <button class="button open-child-view">Child interface</button>
+        </div>
+        <div class="subtitle">KIDS</div>
+        <div class="kid">
+            <div><span class="kid-name">Name</span></div>
+        </div>
+        <div class="flex-row row">
+            <div class="credit-card-image flex-static-item"></div>
+            <div>
+                <button class="button open-parent-child-account" value="Annie">ANNIES ACCOUNT</button>
+            </div>
+        </div>
+        <div class="flex-row row">
+            <div class="iphone-image flex-static-item"></div>
+            <div>
+                <button class="button open-parent-child-account" value="Annie">ANNIES GOALS ACCOUNT</button>
+            </div>
+        </div>
+    </section>
+    <section id="parent-account-view" class="view" style="display: none;">
+        <h1>MY ACCOUNT</h1>
+        <div class="back-button open-parent-view">
+            <a href="#">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+        </div>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+        <div class="line">YOUR ACCOUNT NUMBER IS
+            <b>
+                <span class="iban"></span>
+            </b>
+        </div>
+        <div class="line">YOUR ACCOUNT BALANCE IS
+            <b>
+                <span class="account-balance">5</span>
+                <span class="currency"></span>
+            </b>
         </div>
     </section>
     <section id="parent-child-view" class="view" style="display: none;">
         <h1>Parent</h1>
-        <div class="power-off-button open-selection-view"><a href="#"><i class="fa fa-power-off"></a></i></div>
-        <div class="app">
-            <div id="progress"></div>
-            <div class="flex-row">
-                <div class="fox-image flex-static-item"></div>
-                <div class="child-name">Name</div>
-            </div>
-            <button class="button open-parent-view">Back</button>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
         </div>
+        <div class="flex-row">
+            <div class="fox-image flex-static-item"></div>
+            <div class="child-name">Name</div>
+        </div>
+        <button class="button open-parent-view">Back</button>
     </section>
     <section id="loader-view" class="view" style="display: none">
         <div class="spinner">

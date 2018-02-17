@@ -22,6 +22,10 @@
   /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   -webkit-touch-callout: none;
   /* prevent callout to copy image, etc when tap to hold */
@@ -29,7 +33,6 @@ body {
   /* prevent webkit from resizing text to fit */
   -webkit-user-select: none;
   /* prevent copy paste, to allow, change 'none' to 'text' */
-  background-color: #aac8d7;
   font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   height: 100%;
@@ -42,11 +45,12 @@ body {
   background-position: center bottom;
   background-attachment: fixed;
   background-image: url(../img/background.jpg);
+  background-color: #aac8d7;
 }
 
 section {
   margin: auto;
-  width: 400px;
+  width: 300px;
   position: relative;
 }
 
@@ -79,7 +83,7 @@ p {
   background-repeat: no-repeat;
   background-size: 102px 60px;
   background-position: center;
-  width: 160px;
+  width: 120px;
   height: 60px;
   float: left;
 }
@@ -89,9 +93,21 @@ p {
   background-repeat: no-repeat;
   background-size: 36px 60px;
   background-position: center;
-  width: 160px;
+  width: 120px;
   height: 60px;
   float: left;
+}
+
+.monster-image {
+  position: absolute;
+  background-image: url("../img/monster.png");
+  background-repeat: no-repeat;
+  background-size: 58px 50px;
+  background-position: center;
+  width: 58px;
+  height: 50px;
+  left: 30px;
+  top: -12px;
 }
 
 .row {
@@ -182,7 +198,30 @@ p {
   font-size: 24px;
 }
 
+.back-button {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-size: 24px;
+}
+
 .subtitle {
   margin-bottom: 10px;
   text-align: center;
+}
+
+.line {
+  margin-top: 22px;
+}
+
+.kid {
+  border: 1px solid #27408b;
+  background-color: #f5f8ffc5;
+  height: 80px;
+  margin: 10px 10px;
+  padding: 10px;
+}
+
+.action {
+  font-size: 28px;
 }

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/ivarsbergs/Desktop/Garage48OpenBanking/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat",
-        "source": "/Users/ivarsbergs/Desktop/Garage48OpenBanking/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png"
-    },
-    {
         "merged": "/Users/ivarsbergs/Projects/garage48openbanking/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat",
         "source": "/Users/ivarsbergs/Projects/garage48openbanking/platforms/android/app/src/main/res/drawable-land-xxxhdpi/screen.png"
+    },
+    {
+        "merged": "/Users/ivarsbergs/Desktop/Garage48OpenBanking/platforms/android/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat",
+        "source": "/Users/ivarsbergs/Desktop/Garage48OpenBanking/platforms/android/app/src/main/res/drawable-port-xxhdpi/screen.png"
     },
     {
         "merged": "/Users/ivarsbergs/Desktop/Garage48OpenBanking/platforms/android/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat",

@@ -18,8 +18,9 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+
+<head>
+    <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,22 +29,93 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Kids Bank</title>
+</head>
+
+<body>
+    <section id="selection-view" class="view" style="display: none;">
+        <h1>User selection</h1>
+            <button class="button open-child-view">Child</button>
+            <button class="button open-parent-view">Parent</button>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+    </section>
+    <section id="child-view" class="view" style="display: none;">
+        <h1>Child</h1>
+        <div class="app">
+            <div class="flex-row">
+                <div class="fox-image flex-static-item"></div>
+                <div>Hello, kid! :)</div>
+            </div>
+            <div>Hei, your budget for today -
+                <b>5</b> Euro</div>
+            <button class="button">Account for card</button>
+            <div class="flex-row">
+                <div class="sun-image flex-static-item"></div>
+                <div>
+                    You have saved
+                    <b>2</b>
+                    Euro from yesterday! Congrats!
+                </div>
+            </div>
+            <button class="button">Target (non card acc)</button>
+            <button class="button open-parent-view">Parent</button>
+        </div>
+    </section>
+    <section id="parent-view" class="view" style="display: none;">
+        <h1>Parent</h1>
+        <div class="app">
+            <div id="progress"></div>
+            <div class="flex-row">
+                <div class="fox-image flex-static-item"></div>
+                <div>Hello, parent! :)</div>
+            </div>
+            <div>Hei, your budget for today -
+                <b>5</b> Euro</div>
+            <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
+            <button class="button open-child-view">Child interface</button>
+        </div>
+    </section>
+    <section id="parent-child-view" class="view" style="display: none;">
+        <h1>Parent</h1>
+        <div class="app">
+            <div id="progress"></div>
+            <div class="flex-row">
+                <div class="fox-image flex-static-item"></div>
+                <div class="child-name">Name</div>
+            </div>
+            <button class="button open-parent-view">Back</button>
+        </div>
+    </section>
+    <section id="loader-view" class="view" style="display: none;">
+        <div class="loader"></div>
+        <div class="loader-shadow"></div>
+    </section>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/progressbar.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
 </html>

@@ -82,10 +82,32 @@ var app = {
             }
         });
         
-        bikePrec = 5/60;
-        tickPrec = 5/30;
-        this.bar.animate(bikePrec);
-        this.prog.animate(tickPrec);// Number from 0.0 to 1.0
+        this.bar0 = new ProgressBar.Circle("#progress0", {
+            color: '#672592',
+            trailColor: '#d9b2f3',
+            trailWidth: 12,
+            duration: 1400,
+            easing: 'bounce',
+            strokeWidth: 12,
+            from: { color: '#672592', a: 0 },
+            to: { color: '#672592', a: 1 },
+            // Set default step function for all animate calls
+            step: function (state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+            },
+            text: {
+                value: (7).toFixed(0) + 'EUR',
+                className: 'progress-bar-label',
+                color:"#7a1fb8",
+                autoStyle: true
+            }
+        });
+        
+        bikePrec = 10/60;
+        tickPrec = 10/30;
+        this.bar0.animate(1);
+        this.bar.animate(0.16);
+        this.prog.animate(0.33);// Number from 0.0 to 1.0
 
         function onDisconnect() {
             $(".view").hide();
@@ -127,12 +149,12 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
+                self.bar.animate(0.16);
+                self.prog.animate(0.33);
             }).fail(function () {
                 alert("Can't connect to server!");
                 onDisconnect();
             });
-            this.bar.animate(annie.savingsAccount.balance/bikePrec);
-            this.prog.animate(annie.savingsAccount.balance/tickPrec);
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();
@@ -161,6 +183,8 @@ var app = {
         
         $("#1progress").click(function(){
             //bar.animate(1);
+            $(".view").hide();
+            $("#loader-view").show();
             setTimeout(function(){
                 $(".view").hide();
                 $("#child-goal-achieved-view").show();

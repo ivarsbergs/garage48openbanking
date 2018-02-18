@@ -86,7 +86,7 @@ var app = {
             $("#loader-view").show();
             $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
                 var annie = data.find(kid => {
-                    return kid.currentAccount.uName.toUpperCase() == "LIAM";
+                    return kid.currentAccount.uName.toUpperCase() == "ANNIE";
                 });
                 if(annie.currentAccount.balance < 0.01) {
                     $("#child-view").find(".puppy").show();
@@ -100,17 +100,12 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
-
-                //Nora
-                if(data.allowance>0){
-                        $("#child-view").find(".dAllowance").html("Hei, your budget for today is <b>" + data.allowance + " Euro</b>");  
-                    }  
-                    else{
-                        $("#child-view").find(".dAllowance").text("You have spent all your money!");
-                    }
-                    var sav = data.savings / 2;
-                    $("#child-view").find(".goal1").html("You've saved " + sav + " Euro towards this goal!");
-                });
+                
+                //NORA
+                this.bar.animate(annie.savingsAccount.balance/bikePrec);
+                this.prog.animate(annie.savingsAccount.balance/tickPrec);
+                
+            });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();
@@ -135,6 +130,24 @@ var app = {
         });
         $(".close-kid").click(function () {
             $('.kid[value="' + $(this).attr("value") + '"]').hide();
+        });
+        
+        $("#1progress").click(function(){
+            //bar.animate(1);
+            setTimeout(function(){
+                $(".view").hide();
+                $("#child-goal-achieved-view").show();
+                
+            }, 1000);
+        });
+        
+        $("#2progress").click(function(){
+            //prog.animate(1);
+            setTimeout(function(){
+                $(".view").hide();
+                $("#child-goal-achieved-view").show();
+                
+            }, 3000);
         });
 
         $(".view-details").click(function() {

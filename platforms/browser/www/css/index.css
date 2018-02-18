@@ -25,10 +25,6 @@
 html, body {
   height: 100%;
 }
-#progress, #progress2 {
-    text-color:"#7a1fb8";
-    background-image:"url(img/bck.jpeg)";
-}
 
 body {
   -webkit-touch-callout: none;

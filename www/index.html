@@ -130,7 +130,7 @@
             </div>
             <div>
                 <span>
-                    <span>VIEW </span><a class="action action-account" value="ANNIE" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="ANNIE" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -159,7 +159,7 @@
             </div>
             <div>
                 <span>
-                        <span>VIEW </span><a class="action action-account" value="LIAM" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="LIAM" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="LIAM" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -185,6 +185,41 @@
         <div class="line">MY ACCOUNT BALANCE IS
             <b>
                 <span class="account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+    </section>
+    <section id="child-account-detail-view" class="view" style="display: none;">
+        <h1><span class="kids-name">NAME</span> DETAILS</h1>
+        <div class="back-button open-parent-view">
+            <a href="#">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+        </div>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+        <div class="line">CARDS ACCOUNT NUMBER IS
+            <b>
+                <span class="card-iban"></span>
+            </b>
+        </div>
+        <div class="line">CARDS ACCOUNT BALANCE IS
+            <b>
+                <span class="card-account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT NUMBER IS
+            <b>
+                <span class="saving-iban"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT BALANCE IS
+            <b>
+                <span class="saving-account-balance">5</span>
                 <span class="currency"></span>
             </b>
         </div>

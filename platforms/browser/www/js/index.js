@@ -63,11 +63,28 @@ var app = {
 
         $(".open-parent-view").click(function () {
             $(".view").hide();
-            $("#parent-view").show();
+            $("#loader-view").show();
+            $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
+                data.forEach(kid => {
+                    var kidElement = $('.kid[value="' + kid.currentAccount.uName.toUpperCase() + '"]');
+                    kidElement.find(".kid-name").text(kid.currentAccount.uName);
+                    kidElement.find(".kid-balance").text(kid.currentAccount.balance + " " + kid.currentAccount.currency);
+                    kidElement.find(".kid-saved").text(kid.savingsAccount.balance + " " + kid.currentAccount.currency);
+                    kidElement.find(".view-details").attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);
+                });
+                $(".view").hide();
+                $("#parent-view").show();
+            }).fail(function () {
+                alert("Can't connect to server!");
+                onDisconnect();
+            });
         });
         $(".open-child-view").click(function () {
             $(".view").hide();
             $("#child-view").show();
+            var randomValue = Math.random();
+            self.bar.setText((randomValue * 100).toFixed(0) + '%');
+            self.bar.animate(randomValue);
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();
@@ -92,6 +109,23 @@ var app = {
         });
         $(".close-kid").click(function () {
             $('.kid[value="' + $(this).attr("value") + '"]').hide();
+        });
+
+        $(".view-details").click(function() {
+            var kidsName = $(this).attr("value");
+            var cardAccount = $(this).attr("card-account");
+            var cardAccountBalance = $(this).attr("card-account-balance");
+            var savingAccount = $(this).attr("saving-account");
+            var savingAccountBalance = $(this).attr("saving-account-balance");
+
+            $("#child-account-detail-view").find(".kids-name").text(kidsName + "S");
+            $("#child-account-detail-view").find(".card-iban").text(cardAccount);
+            $("#child-account-detail-view").find(".card-account-balance").text(cardAccountBalance);
+            $("#child-account-detail-view").find(".saving-iban").text(savingAccount);
+            $("#child-account-detail-view").find(".saving-account-balance").text(savingAccountBalance);
+
+            $(".view").hide();
+            $("#child-account-detail-view").show();
         });
     },
 };

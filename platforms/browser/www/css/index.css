@@ -64,6 +64,11 @@ p {
   line-height: 56px;
 }
 
+a, a:active, a:hover, a:visited {
+  color: #6C2EE8;
+  text-decoration: none;
+}
+
 .button {
   width: 160px;
   background-color: #27408b;
@@ -236,8 +241,8 @@ p {
   position: relative;
 }
 
-.action {
-  font-size: 28px;
+.view-details-icon {
+  font-size: 20px;
 }
 
 .close-button {

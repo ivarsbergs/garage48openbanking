@@ -6,7 +6,6 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
@@ -33,17 +32,17 @@
         <div class="monster-image open-selection-view">
         </div>
         <div class="subtitle">MY BUDGET</div>
-        <div class="center">Hei, your budget for today -
-            <b>5 Euro</b></div>
+        <div>Hei, your budget for today -
+            <b>5</b> Euro</div>
         <div class="flex-row">
             <div class="sun-image flex-static-item"></div>
-            <div class="center">
+            <div>
                 You have saved
-                <b>2
-                Euro</b> from yesterday! Congrats!
+                <b>2</b>
+                Euro from yesterday! Congrats!
             </div>
         </div>
-        <br>
+        
         <div class="subtitle">MY GOALS</div>
         <div class="goal" value="BIKE">
             <div class="close-button">
@@ -59,11 +58,10 @@
             <div class="flex-row row">
                 <div id="progress" class="flex-static-item"></div>
                 <div>
-                    <br>
-                    <i class="fa fa-money"></i><span><b> ADD</b></span>
+                    <span> HAVE</span>
                     <b>
-                        <!--<span class="goal-balance">SAVINGS</span>-->
-                    </b>
+                        <span class="goal-balance">BALANCE</span>
+                    </b> FOR TODAY
                 </div>
             </div>
         </div>
@@ -75,17 +73,16 @@
             </div>
             <div>
                 <b>
-                    <span class="goal-name">TICKETS TO LIL PEEP</span>
+                    <span class="goal-name">BIKE</span>
                 </b>
             </div>
             <div class="flex-row row">
-                <div id="progress2" class="flex-static-item"></div>
+                <div id="progress" class="flex-static-item"></div>
                 <div>
-                    <br>
-                    <i class="fa fa-money"></i><span><b> ADD</b></span>
+                    <span> HAVE</span>
                     <b>
-                        <!--<span class="goal-balance">SAVINGS</span>-->
-                    </b>
+                        <span class="goal-balance">BALANCE</span>
+                    </b> FOR TODAY
                 </div>
             </div>
         </div>
@@ -130,7 +127,7 @@
             </div>
             <div>
                 <span>
-                    <span>VIEW </span><a class="action action-account" value="ANNIE" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="ANNIE" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -159,7 +156,7 @@
             </div>
             <div>
                 <span>
-                        <span>VIEW </span><a class="action action-account" value="LIAM" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="LIAM" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="LIAM" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -185,6 +182,41 @@
         <div class="line">MY ACCOUNT BALANCE IS
             <b>
                 <span class="account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+    </section>
+    <section id="child-account-detail-view" class="view" style="display: none;">
+        <h1><span class="kids-name">NAME</span> DETAILS</h1>
+        <div class="back-button open-parent-view">
+            <a href="#">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+        </div>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+        <div class="line">CARDS ACCOUNT NUMBER IS
+            <b>
+                <span class="card-iban"></span>
+            </b>
+        </div>
+        <div class="line">CARDS ACCOUNT BALANCE IS
+            <b>
+                <span class="card-account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT NUMBER IS
+            <b>
+                <span class="saving-iban"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT BALANCE IS
+            <b>
+                <span class="saving-account-balance">5</span>
                 <span class="currency"></span>
             </b>
         </div>

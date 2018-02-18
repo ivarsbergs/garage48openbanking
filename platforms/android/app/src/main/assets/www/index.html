@@ -31,6 +31,7 @@
         </div>
         <div class="monster-image open-selection-view">
         </div>
+        <div class="subtitle">MY BUDGET</div>
         <div>Hei, your budget for today -
             <b>5</b> Euro</div>
         <div class="flex-row">
@@ -41,9 +42,51 @@
                 Euro from yesterday! Congrats!
             </div>
         </div>
-        <div id="progress"></div>
-        <button class="button open-parent-child-view" value="Annie">Child 1(Annie)</button>
-        <button class="button open-child-view">Child interface</button>
+        
+        <div class="subtitle">MY GOALS</div>
+        <div class="goal" value="BIKE">
+            <div class="close-button">
+                <a href="#" class="close-goal" value="BIKE">
+                    <i class="fa fa-close"></i>
+                </a>
+            </div>
+            <div>
+                <b>
+                    <span class="goal-name">BIKE</span>
+                </b>
+            </div>
+            <div class="flex-row row">
+                <div id="progress" class="flex-static-item"></div>
+                <div>
+                    <span> HAVE</span>
+                    <b>
+                        <span class="goal-balance">BALANCE</span>
+                    </b> FOR TODAY
+                </div>
+            </div>
+        </div>
+        <div class="goal" value="BIKE">
+            <div class="close-button">
+                <a href="#" class="close-goal" value="BIKE">
+                    <i class="fa fa-close"></i>
+                </a>
+            </div>
+            <div>
+                <b>
+                    <span class="goal-name">BIKE</span>
+                </b>
+            </div>
+            <div class="flex-row row">
+                <div id="progress" class="flex-static-item"></div>
+                <div>
+                    <span> HAVE</span>
+                    <b>
+                        <span class="goal-balance">BALANCE</span>
+                    </b> FOR TODAY
+                </div>
+            </div>
+        </div>
+        <button class="button add-kid-button" style="width: 280px;">ADD</button>
     </section>
     <section id="parent-view" class="view" style="display: none;">
         <h1>HEI, MOM!</h1>
@@ -84,7 +127,7 @@
             </div>
             <div>
                 <span>
-                    <span>VIEW </span><a class="action action-account" value="ANNIE" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="ANNIE" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="ANNIE" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -113,7 +156,7 @@
             </div>
             <div>
                 <span>
-                        <span>VIEW </span><a class="action action-account" value="LIAM" href="#"><i class="fa fa-cc-mastercard"></i></a><span> OR </span><a class="action action-savings-account" value="LIAM" href="#"><i class="fa fa-archive"></i></a><span> ACCOUNT</span>
+                    <a class="view-details" value="LIAM" href="#"><span class="view-details-icon"><i class="fa fa-eye"></i></span> VIEW DETAILS</a>
                 </span>
             </div>
         </div>
@@ -139,6 +182,41 @@
         <div class="line">MY ACCOUNT BALANCE IS
             <b>
                 <span class="account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+    </section>
+    <section id="child-account-detail-view" class="view" style="display: none;">
+        <h1><span class="kids-name">NAME</span> DETAILS</h1>
+        <div class="back-button open-parent-view">
+            <a href="#">
+                <i class="fa fa-angle-double-left"></i>
+            </a>
+        </div>
+        <div class="power-off-button open-selection-view">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+        <div class="line">CARDS ACCOUNT NUMBER IS
+            <b>
+                <span class="card-iban"></span>
+            </b>
+        </div>
+        <div class="line">CARDS ACCOUNT BALANCE IS
+            <b>
+                <span class="card-account-balance">5</span>
+                <span class="currency"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT NUMBER IS
+            <b>
+                <span class="saving-iban"></span>
+            </b>
+        </div>
+        <div class="line">SAVINGS ACCOUNT BALANCE IS
+            <b>
+                <span class="saving-account-balance">5</span>
                 <span class="currency"></span>
             </b>
         </div>

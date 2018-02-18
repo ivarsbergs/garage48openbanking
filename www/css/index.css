@@ -147,7 +147,7 @@ a, a:active, a:hover, a:visited {
   flex-grow: 0;
 }
 
-#progress, #progress2 {
+#progress, #progress2, #progress0 {
   margin: 20px;
   width: 100px;
   height: 100px;

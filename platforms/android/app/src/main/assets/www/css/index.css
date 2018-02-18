@@ -60,10 +60,6 @@ h1 {
   font-weight: normal;
 }
 
-p {
-  line-height: 56px;
-}
-
 a, a:active, a:hover, a:visited {
   color: #6C2EA5;
   text-decoration: none;
@@ -115,6 +111,15 @@ a, a:active, a:hover, a:visited {
   height: 50px;
   left: 30px;
   top: -12px;
+}
+
+.puppy-image {
+  background-image: url("../img/puppy.png");
+  background-repeat: no-repeat;
+  background-size: 47px 50px;
+  background-position: center;
+  width: 47px;
+  height: 50px;
 }
 
 .row {
@@ -201,20 +206,22 @@ a, a:active, a:hover, a:visited {
 .power-off-button {
   position: absolute;
   right: 15px;
-  top: 15px;
+  top: 0px;
   font-size: 24px;
 }
 
 .back-button {
   position: absolute;
   left: 15px;
-  top: 15px;
+  top: -2px;
   font-size: 24px;
 }
 
 .subtitle {
   margin-bottom: 10px;
   text-align: center;
+  font-size: 20px;
+  margin-top: 40px;
 }
 
 .line {
@@ -233,7 +240,9 @@ a, a:active, a:hover, a:visited {
 
 .goal {
   border: 1px solid #27408b;
-  background-color: rgba(245, 248, 255, 0.773);
+  /*background-color: rgba(245, 248, 255, 0.773);*/
+  background-image:url("/img/bck2.jpeg");
+  /*opacity:0.5;*/
   height: 186px;
   margin: 10px 10px;
   padding: 10px;
@@ -259,4 +268,16 @@ a, a:active, a:hover, a:visited {
 .add-kid-button {
   width: 280px;
   margin: 0px 10px;
+}
+
+.child-content {
+  padding: 0px 10px;
+}
+
+.puppy {
+  line-height: 48px;
+}
+
+.icon {
+  font-size: 24px;
 }

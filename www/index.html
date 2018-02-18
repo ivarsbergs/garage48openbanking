@@ -154,7 +154,7 @@
             </div>
             <div>
                 <span>
-                    <a class="view-details" value="ANNIE" href="#"><span class="view-details-icon"><i class="fa fa-ellipsis-h"></i></span> MORE</a>
+                    <a class="view-details" value="LIAM" href="#"><span class="view-details-icon"><i class="fa fa-ellipsis-h"></i></span> MORE</a>
                 </span>
             </div>
         </div>
@@ -185,7 +185,7 @@
         </div>
     </section>
     <section id="child-account-detail-view" class="view" style="display: none;">
-        <h1><span class="kids-name">NAME</span> DETAILS</h1>
+        <h1><span class="kids-name">NAME</span></h1>
         <div class="back-button open-parent-view">
             <a href="#">
                 <i class="fa fa-angle-double-left"></i>
@@ -196,6 +196,16 @@
                 <i class="fa fa-power-off"></i>
             </a>
         </div>
+        <div class="subtitle">GIVE POCKET MONEY</div>
+        <p>YOU HAVE AVAILABLE <span class="parent-account-balance">100 EUR</span></p>
+        <p>
+            <input class="text-input give-money-amount" type="text"/>&nbsp;EUR
+            <br>
+            <br>
+            <input class="text-input give-money-days" type="text"/>&nbsp;DAYS
+        </p>
+        <button class="button give-money-button" style="width: 280px; margin: 0px;">GIVE</button>
+        <div class="subtitle">DETAILS</div>
         <div class="line">CARDS ACCOUNT NUMBER IS
             <b>
                 <span class="card-iban"></span>
@@ -204,7 +214,6 @@
         <div class="line">CARDS ACCOUNT BALANCE IS
             <b>
                 <span class="card-account-balance">5</span>
-                <span class="currency"></span>
             </b>
         </div>
         <div class="line">SAVINGS ACCOUNT NUMBER IS
@@ -215,9 +224,10 @@
         <div class="line">SAVINGS ACCOUNT BALANCE IS
             <b>
                 <span class="saving-account-balance">5</span>
-                <span class="currency"></span>
             </b>
         </div>
+        <div class="subtitle">LATEST PURCHASES</div>
+
     </section>
     <section id="loader-view" class="view" style="display: none">
         <div class="spinner">

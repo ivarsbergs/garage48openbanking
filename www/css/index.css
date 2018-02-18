@@ -281,3 +281,8 @@ a, a:active, a:hover, a:visited {
 .icon {
   font-size: 24px;
 }
+
+.text-input {
+  width: 160px;
+  height: 24px;
+}

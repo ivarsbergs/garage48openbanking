@@ -11,6 +11,35 @@ var app = {
     onDeviceReady: function () {
         var self = this;
 
+        setInterval(function() {
+            if($("#child-view").is(":visible")) {
+                $.getJSON("http://kidsbank.herokuapp.com/", function (data) {
+                    if(data) {
+                        $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
+                            var annie = data.find(kid => {
+                                return kid.currentAccount.uName.toUpperCase() == "ANNIE";
+                            });
+                            if(annie.currentAccount.balance < 0.01) {
+                                $("#child-view").find(".puppy").show();
+                                $("#child-view").find(".budget").hide();
+                            } else {
+                                $("#child-view").find(".puppy").hide();
+                                $("#child-view").find(".budget").show();
+                            }
+                            $("#child-view").find(".card-account-balance").text(annie.currentAccount.balance + " " + annie.currentAccount.currency);
+                            $("#child-view").find(".saving-account-balance").text(annie.savingsAccount.balance + " " + annie.currentAccount.currency);
+
+                            $(".view").hide();
+                            $("#child-view").show();
+                        }).fail(function () {
+                            alert("Can't connect to server!");
+                            onDisconnect();
+                        });
+                    }
+                });
+            }
+        }, 2000);
+
         //var randomValue = 0.55;//Math.random();
         this.bar = new ProgressBar.Circle("#progress", {
             color: '#672592',
@@ -72,7 +101,7 @@ var app = {
                     kidElement.find(".kid-name").text(kid.currentAccount.uName.toUpperCase());
                     kidElement.find(".kid-balance").text(kid.currentAccount.balance + " " + kid.currentAccount.currency);
                     kidElement.find(".kid-saved").text(kid.savingsAccount.balance + " " + kid.currentAccount.currency);
-                    kidElement.find(".view-details").attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);
+                    kidElement.find(".view-details").attr("currencry", kid.currentAccount.currency).attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);
                 });
                 $(".view").hide();
                 $("#parent-view").show();
@@ -84,10 +113,8 @@ var app = {
         $(".open-child-view").click(function () {
             $(".view").hide();
             $("#loader-view").show();
-            $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
-                var annie = data.find(kid => {
-                    return kid.currentAccount.uName.toUpperCase() == "LIAM";
-                });
+            $.getJSON("http://kidsbank.herokuapp.com/ANNIE/balance", function (data) {
+                var annie = data;
                 if(annie.currentAccount.balance < 0.01) {
                     $("#child-view").find(".puppy").show();
                     $("#child-view").find(".budget").hide();
@@ -100,6 +127,9 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
+            }).fail(function () {
+                alert("Can't connect to server!");
+                onDisconnect();
             });
         });
         $(".open-selection-view").click(function () {
@@ -126,22 +156,57 @@ var app = {
         $(".close-kid").click(function () {
             $('.kid[value="' + $(this).attr("value") + '"]').hide();
         });
-
         $(".view-details").click(function() {
+            $(".view").hide();
+            $("#loader-view").show();
             var kidsName = $(this).attr("value");
             var cardAccount = $(this).attr("card-account");
             var cardAccountBalance = $(this).attr("card-account-balance");
+            var currency = $(this).attr("currency");
             var savingAccount = $(this).attr("saving-account");
             var savingAccountBalance = $(this).attr("saving-account-balance");
 
-            $("#child-account-detail-view").find(".kids-name").text(kidsName + "S");
-            $("#child-account-detail-view").find(".card-iban").text(cardAccount);
-            $("#child-account-detail-view").find(".card-account-balance").text(cardAccountBalance);
-            $("#child-account-detail-view").find(".saving-iban").text(savingAccount);
-            $("#child-account-detail-view").find(".saving-account-balance").text(savingAccountBalance);
+            $.getJSON("http://kidsbank.herokuapp.com/balance/owner", function (data) {
+                $("#child-account-detail-view").find(".kids-name").text(kidsName);
+                $("#child-account-detail-view").find(".card-iban").text(cardAccount);
+                $("#child-account-detail-view").find(".card-account-balance").text(cardAccountBalance + " " + currency);
+                $("#child-account-detail-view").find(".saving-iban").text(savingAccount);
+                $("#child-account-detail-view").find(".saving-account-balance").text(savingAccountBalance);
+                $("#child-account-detail-view").find(".give-money-button").attr("name", kidsName);
+                $("#child-account-detail-view").find(".parent-account-balance").text(data.balance + " " + data.currency);
+                $(".view").hide();
+                $("#child-account-detail-view").show();
+            }).fail(function () {
+                alert("Can't connect to server!");
+                onDisconnect();
+            });
+        });
 
+        $(".give-money-button").click(function() {
+            var name = $(this).attr("name");
+            var amount = $(".give-money-amount").val();
+            var days = $(".give-money-days").val();
             $(".view").hide();
-            $("#child-account-detail-view").show();
+            $("#loader-view").show();
+            $.getJSON("http://kidsbank.herokuapp.com/" + name + "/pay/" + amount + "/" + days, function (data) {
+                $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
+                    data.forEach(kid => {
+                        var kidElement = $('.kid[value="' + kid.currentAccount.uName.toUpperCase() + '"]');
+                        kidElement.find(".kid-name").text(kid.currentAccount.uName.toUpperCase());
+                        kidElement.find(".kid-balance").text(kid.currentAccount.balance + " " + kid.currentAccount.currency);
+                        kidElement.find(".kid-saved").text(kid.savingsAccount.balance + " " + kid.currentAccount.currency);
+                        kidElement.find(".view-details").attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);
+                    });
+                    $(".view").hide();
+                    $("#parent-view").show();
+                }).fail(function () {
+                    alert("Can't connect to server!");
+                    onDisconnect();
+                });
+            }).fail(function () {
+                alert("Can't connect to server!");
+                onDisconnect();
+            });
         });
     },
 };

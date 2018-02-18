@@ -11,7 +11,7 @@ var app = {
     onDeviceReady: function () {
         var self = this;
 
-        var randomValue = 0.55;//Math.random();
+        //var randomValue = 0.55;//Math.random();
         this.bar = new ProgressBar.Circle("#progress", {
             color: '#672592',
             trailColor: '#d9b2f3',
@@ -26,7 +26,7 @@ var app = {
                 circle.path.setAttribute('stroke', state.color);
             },
             text: {
-                value: (22).toFixed(0) + 'EUR',
+                value: (60).toFixed(0) + 'EUR',
                 className: 'progress-bar-label',
                 autoStyle: true
             }
@@ -46,15 +46,17 @@ var app = {
                 circle.path.setAttribute('stroke', state.color);
             },
             text: {
-                value: (8).toFixed(0) + ' EUR',
+                value: (30).toFixed(0) + 'EUR',
                 className: 'progress-bar-label',
                 color:"#7a1fb8",
                 autoStyle: true
             }
         });
         
-        this.bar.animate(randomValue);
-        this.prog.animate(0.2);// Number from 0.0 to 1.0
+        bikePrec = 5/60;
+        tickPrec = 5/30;
+        this.bar.animate(bikePrec);
+        this.prog.animate(tickPrec);// Number from 0.0 to 1.0
 
         function onDisconnect() {
             $(".view").hide();
@@ -81,10 +83,27 @@ var app = {
         });
         $(".open-child-view").click(function () {
             $(".view").hide();
-            $("#child-view").show();
-            var randomValue = Math.random();
-            self.bar.setText((randomValue * 100).toFixed(0) + '%');
-            self.bar.animate(randomValue);
+            $("#loader-view").show();
+            $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
+                var annie = data.find(kid => {
+                    return kid.currentAccount.uName.toUpperCase() == "ANNIE";
+                });
+                if(annie.currentAccount.balance < 0.01) {
+                    $("#child-view").find(".puppy").show();
+                    $("#child-view").find(".budget").hide();
+                } else {
+                    $("#child-view").find(".puppy").hide();
+                    $("#child-view").find(".budget").show();
+                }
+                $("#child-view").find(".card-account-balance").text(annie.currentAccount.balance + " " + annie.currentAccount.currency);
+                $("#child-view").find(".saving-account-balance").text(annie.savingsAccount.balance + " " + annie.currentAccount.currency);
+
+                $(".view").hide();
+                $("#child-view").show();
+            }).fail(function () {
+                alert("Can't connect to server!");
+                onDisconnect();
+            });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();
@@ -110,20 +129,17 @@ var app = {
         $(".close-kid").click(function () {
             $('.kid[value="' + $(this).attr("value") + '"]').hide();
         });
-
         $(".view-details").click(function() {
             var kidsName = $(this).attr("value");
             var cardAccount = $(this).attr("card-account");
             var cardAccountBalance = $(this).attr("card-account-balance");
             var savingAccount = $(this).attr("saving-account");
             var savingAccountBalance = $(this).attr("saving-account-balance");
-
-            $("#child-account-detail-view").find(".kids-name").text(kidsName + "S");
+            $("#child-account-detail-view").find(".kids-name").text(kidsName);
             $("#child-account-detail-view").find(".card-iban").text(cardAccount);
             $("#child-account-detail-view").find(".card-account-balance").text(cardAccountBalance);
             $("#child-account-detail-view").find(".saving-iban").text(savingAccount);
             $("#child-account-detail-view").find(".saving-account-balance").text(savingAccountBalance);
-
             $(".view").hide();
             $("#child-account-detail-view").show();
         });

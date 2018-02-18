@@ -67,7 +67,7 @@ var app = {
             $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
                 data.forEach(kid => {
                     var kidElement = $('.kid[value="' + kid.currentAccount.uName.toUpperCase() + '"]');
-                    kidElement.find(".kid-name").text(kid.currentAccount.uName);
+                    kidElement.find(".kid-name").text(kid.currentAccount.uName.toUpperCase());
                     kidElement.find(".kid-balance").text(kid.currentAccount.balance + " " + kid.currentAccount.currency);
                     kidElement.find(".kid-saved").text(kid.savingsAccount.balance + " " + kid.currentAccount.currency);
                     kidElement.find(".view-details").attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);
@@ -81,10 +81,27 @@ var app = {
         });
         $(".open-child-view").click(function () {
             $(".view").hide();
-            $("#child-view").show();
-            var randomValue = Math.random();
-            self.bar.setText((randomValue * 100).toFixed(0) + '%');
-            self.bar.animate(randomValue);
+            $("#loader-view").show();
+            $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
+                var annie = data.find(kid => {
+                    return kid.currentAccount.uName.toUpperCase() == "LIAM";
+                });
+                if(annie.currentAccount.balance < 0.01) {
+                    $("#child-view").find(".puppy").show();
+                    $("#child-view").find(".budget").hide();
+                } else {
+                    $("#child-view").find(".puppy").hide();
+                    $("#child-view").find(".budget").show();
+                }
+                $("#child-view").find(".card-account-balance").text(annie.currentAccount.balance + " " + annie.currentAccount.currency);
+                $("#child-view").find(".saving-account-balance").text(annie.savingsAccount.balance + " " + annie.currentAccount.currency);
+
+                $(".view").hide();
+                $("#child-view").show();
+                var randomValue = Math.random();
+                self.bar.setText((randomValue * 100).toFixed(0) + '%');
+                self.bar.animate(randomValue);
+            });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();

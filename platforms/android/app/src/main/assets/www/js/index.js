@@ -4,33 +4,57 @@
 
 var app = {
     bar: null,
+    prog:null,
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
     onDeviceReady: function () {
         var self = this;
 
-        var randomValue = Math.random();
+        var randomValue = 0.55;//Math.random();
         this.bar = new ProgressBar.Circle("#progress", {
-            color: '#333333',
-            trailColor: '#EEEEEE',
-            trailWidth: 1,
+            color: '#672592',
+            trailColor: '#d9b2f3',
+            trailWidth: 12,
             duration: 1400,
             easing: 'bounce',
             strokeWidth: 12,
-            from: { color: '#539124', a: 0 },
-            to: { color: '#9EC908', a: 1 },
+            from: { color: '#672592', a: 0 },
+            to: { color: '#672592', a: 1 },
             // Set default step function for all animate calls
             step: function (state, circle) {
                 circle.path.setAttribute('stroke', state.color);
             },
             text: {
-                value: (randomValue * 100).toFixed(0) + '%',
+                value: (22).toFixed(0) + 'EUR',
                 className: 'progress-bar-label',
                 autoStyle: true
             }
         });
-        this.bar.animate(randomValue);  // Number from 0.0 to 1.0
+        
+        this.prog = new ProgressBar.Circle("#progress2", {
+            color: '#672592',
+            trailColor: '#d9b2f3',
+            trailWidth: 12,
+            duration: 1400,
+            easing: 'bounce',
+            strokeWidth: 12,
+            from: { color: '#672592', a: 0 },
+            to: { color: '#672592', a: 1 },
+            // Set default step function for all animate calls
+            step: function (state, circle) {
+                circle.path.setAttribute('stroke', state.color);
+            },
+            text: {
+                value: (8).toFixed(0) + ' EUR',
+                className: 'progress-bar-label',
+                color:"#7a1fb8",
+                autoStyle: true
+            }
+        });
+        
+        this.bar.animate(randomValue);
+        this.prog.animate(0.2);// Number from 0.0 to 1.0
 
         function onDisconnect() {
             $(".view").hide();
@@ -43,7 +67,7 @@ var app = {
             $.getJSON("http://kidsbank.herokuapp.com/balance/children", function (data) {
                 data.forEach(kid => {
                     var kidElement = $('.kid[value="' + kid.currentAccount.uName.toUpperCase() + '"]');
-                    kidElement.find(".kid-name").text(kid.currentAccount.uName);
+                    kidElement.find(".kid-name").text(kid.currentAccount.uName.toUpperCase());
                     kidElement.find(".kid-balance").text(kid.currentAccount.balance + " " + kid.currentAccount.currency);
                     kidElement.find(".kid-saved").text(kid.savingsAccount.balance + " " + kid.currentAccount.currency);
                     kidElement.find(".view-details").attr("card-account", kid.currentAccount.iban).attr("card-account-balance", kid.currentAccount.balance).attr("saving-account", kid.savingsAccount.iban).attr("saving-account-balance", kid.savingsAccount.balance);

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Feb 18 01:33:43 EET 2018
+#Sun Feb 18 10:03:31 EET 2018
 25.file=/Users/ivarsbergs/Projects/garage48openbanking/platforms/android/app/build/intermediates/assets/debug/www/cordova-js-src/platform.js
 41.base=/Users/ivarsbergs/Projects/garage48openbanking/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_
 25.base=/Users/ivarsbergs/Projects/garage48openbanking/platforms/android/app/build/intermediates/assets/debug

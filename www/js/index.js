@@ -127,6 +127,8 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
+                self.bar.animate(annie.savingsAccount.balance/bikePrec);
+                self.prog.animate(annie.savingsAccount.balance/tickPrec);
             }).fail(function () {
                 alert("Can't connect to server!");
                 onDisconnect();
@@ -156,6 +158,25 @@ var app = {
         $(".close-kid").click(function () {
             $('.kid[value="' + $(this).attr("value") + '"]').hide();
         });
+        
+        $("#1progress").click(function(){
+            //bar.animate(1);
+            setTimeout(function(){
+                $(".view").hide();
+                $("#child-goal-achieved-view").show();
+                
+            }, 1000);
+        });
+        
+        $("#2progress").click(function(){
+            //prog.animate(1);
+            setTimeout(function(){
+                $(".view").hide();
+                $("#child-goal-achieved-view").show();
+                
+            }, 3000);
+        });
+
         $(".view-details").click(function() {
             $(".view").hide();
             $("#loader-view").show();

@@ -11,7 +11,7 @@ var app = {
     onDeviceReady: function () {
         var self = this;
 
-        var randomValue = 0.55;//Math.random();
+        //var randomValue = 0.55;//Math.random();
         this.bar = new ProgressBar.Circle("#progress", {
             color: '#672592',
             trailColor: '#d9b2f3',
@@ -26,7 +26,7 @@ var app = {
                 circle.path.setAttribute('stroke', state.color);
             },
             text: {
-                value: (22).toFixed(0) + 'EUR',
+                value: (60).toFixed(0) + 'EUR',
                 className: 'progress-bar-label',
                 autoStyle: true
             }
@@ -46,15 +46,17 @@ var app = {
                 circle.path.setAttribute('stroke', state.color);
             },
             text: {
-                value: (8).toFixed(0) + ' EUR',
+                value: (30).toFixed(0) + 'EUR',
                 className: 'progress-bar-label',
                 color:"#7a1fb8",
                 autoStyle: true
             }
         });
         
-        this.bar.animate(randomValue);
-        this.prog.animate(0.2);// Number from 0.0 to 1.0
+        bikePrec = 5/60;
+        tickPrec = 5/30;
+        this.bar.animate(bikePrec);
+        this.prog.animate(tickPrec);// Number from 0.0 to 1.0
 
         function onDisconnect() {
             $(".view").hide();
@@ -98,10 +100,17 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
-                var randomValue = Math.random();
-                self.bar.setText((randomValue * 100).toFixed(0) + '%');
-                self.bar.animate(randomValue);
-            });
+
+                //Nora
+                if(data.allowance>0){
+                        $("#child-view").find(".dAllowance").html("Hei, your budget for today is <b>" + data.allowance + " Euro</b>");  
+                    }  
+                    else{
+                        $("#child-view").find(".dAllowance").text("You have spent all your money!");
+                    }
+                    var sav = data.savings / 2;
+                    $("#child-view").find(".goal1").html("You've saved " + sav + " Euro towards this goal!");
+                });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();

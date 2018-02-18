@@ -240,7 +240,9 @@ a, a:active, a:hover, a:visited {
 
 .goal {
   border: 1px solid #27408b;
-  background-color: rgba(245, 248, 255, 0.773);
+  /*background-color: rgba(245, 248, 255, 0.773);*/
+  background-image:url("/img/bck2.jpeg");
+  /*opacity:0.5;*/
   height: 186px;
   margin: 10px 10px;
   padding: 10px;

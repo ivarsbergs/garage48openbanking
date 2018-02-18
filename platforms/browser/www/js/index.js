@@ -127,12 +127,12 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
+                self.bar.animate(annie.savingsAccount.balance/bikePrec);
+                self.prog.animate(annie.savingsAccount.balance/tickPrec);
             }).fail(function () {
                 alert("Can't connect to server!");
                 onDisconnect();
             });
-            this.bar.animate(annie.savingsAccount.balance/bikePrec);
-            this.prog.animate(annie.savingsAccount.balance/tickPrec);
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();

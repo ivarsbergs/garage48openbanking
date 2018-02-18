@@ -297,3 +297,12 @@ a, a:active, a:hover, a:visited {
   width: 160px;
   height: 24px;
 }
+
+.payment {
+  background-color: white;
+  padding: 5px;
+}
+
+.payment-price {
+  color: green;
+}

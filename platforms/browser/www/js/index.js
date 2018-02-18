@@ -100,10 +100,6 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
-                var randomValue = Math.random();
-                self.bar.setText((randomValue * 100).toFixed(0) + '%');
-                self.bar.animate(randomValue);
-            });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();

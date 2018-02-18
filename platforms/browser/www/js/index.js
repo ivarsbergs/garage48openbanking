@@ -100,6 +100,17 @@ var app = {
 
                 $(".view").hide();
                 $("#child-view").show();
+
+                //Nora
+                if(data.allowance>0){
+                        $("#child-view").find(".dAllowance").html("Hei, your budget for today is <b>" + data.allowance + " Euro</b>");  
+                    }  
+                    else{
+                        $("#child-view").find(".dAllowance").text("You have spent all your money!");
+                    }
+                    var sav = data.savings / 2;
+                    $("#child-view").find(".goal1").html("You've saved " + sav + " Euro towards this goal!");
+                });
         });
         $(".open-selection-view").click(function () {
             $(".view").hide();
